@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class AgendamentoEmail {
@@ -13,12 +15,16 @@ public class AgendamentoEmail {
 	private Long id;
 	
 	@Column
+	@NotBlank
+	@Email
 	private String email;
 	
 	@Column
+	@NotBlank
 	private String assunto;
 	
 	@Column
+	@NotBlank
 	private String mensagem;
 	
 	@Column

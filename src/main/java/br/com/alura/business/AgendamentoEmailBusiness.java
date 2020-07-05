@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.validation.Valid;
 
 import br.com.alura.dao.AgendamentoEmailDao;
 import br.com.alura.entity.AgendamentoEmail;
@@ -19,7 +20,7 @@ public class AgendamentoEmailBusiness {
 		return agendamentoEmailDao.listarAgendamentosEmail();
 	}
 	
-	public void salvarAgendamentoEmail(AgendamentoEmail agendamentoEmail) {
+	public void salvarAgendamentoEmail(@Valid AgendamentoEmail agendamentoEmail) {
 		
 		agendamentoEmail.setEnviado(false);
 		agendamentoEmailDao.salvarAgendamentoEmail(agendamentoEmail);
