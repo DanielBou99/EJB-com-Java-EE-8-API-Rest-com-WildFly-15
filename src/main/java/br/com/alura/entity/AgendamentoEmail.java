@@ -16,6 +16,12 @@ public class AgendamentoEmail {
 	private String email;
 	
 	@Column
+	private String assunto;
+	
+	@Column
+	private String mensagem;
+	
+	@Column
 	private Boolean enviado;
 	
 	public Long getId() {
@@ -36,7 +42,19 @@ public class AgendamentoEmail {
 	public void setEnviado(Boolean enviado) {
 		this.enviado = enviado;
 	}
-
+	public String getAssunto() {
+		return assunto;
+	}
+	public void setAssunto(String assunto) {
+		this.assunto = assunto;
+	}
+	public String getMensagem() {
+		return mensagem;
+	}
+	public void setMensagem(String mensagem) {
+		this.mensagem = mensagem;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
