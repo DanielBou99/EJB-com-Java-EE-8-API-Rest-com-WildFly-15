@@ -38,17 +38,7 @@ public class AgendamentoEmailResource {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response salvarAgendamentoEmail(AgendamentoEmail agendamentoEmail) {
 		
-		try {
-			agendamentoEmailBusiness.salvarAgendamentoEmail(agendamentoEmail);
-		}
-		catch (EJBException e) {
-			if (e.getCause() instanceof ConstraintViolationException) {
-				logger.info(e.getMessage());
-			} else {
-				logger.severe(e.getMessage());
-			}
-			throw e;
-		}
+		agendamentoEmailBusiness.salvarAgendamentoEmail(agendamentoEmail);
 		
 		return Response
 				.status(201)

@@ -8,10 +8,12 @@ import javax.validation.Valid;
 
 import br.com.alura.dao.AgendamentoEmailDao;
 import br.com.alura.entity.AgendamentoEmail;
+import br.com.alura.interception.Logger;
 
 @Stateless /* Transformar a classe em EJB */
+@Logger
 public class AgendamentoEmailBusiness {
-	
+
 	@Inject
 	private AgendamentoEmailDao agendamentoEmailDao;
 	
