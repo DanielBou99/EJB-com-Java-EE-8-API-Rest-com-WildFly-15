@@ -54,7 +54,14 @@ public class AgendamentoEmailBusiness {
 		return agendamentoEmailDao.listarAgendamentosEmailNaoEnviados();
 	}
 	
+	public void marcarEnviadas(AgendamentoEmail agendamentoEmail) {
+		
+		agendamentoEmail.setEnviado(true);
+		agendamentoEmailDao.atualizarAgendamentoEmail(agendamentoEmail);
+	}
+	
 	public void enviarEmail(AgendamentoEmail agendamentoEmail) {
+		
 		try {
 		    MimeMessage mensagem = new MimeMessage(sessaoEmail);
 		    mensagem.setFrom(sessaoEmail.getProperty(EMAIL_FROM));

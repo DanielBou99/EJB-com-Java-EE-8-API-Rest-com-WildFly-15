@@ -1,5 +1,6 @@
 package br.com.alura.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -10,8 +11,8 @@ import javax.persistence.Query;
 import br.com.alura.entity.AgendamentoEmail;
 
 @Stateless
-public class AgendamentoEmailDao {
-	
+public class AgendamentoEmailDao{
+
 	@PersistenceContext
 	private EntityManager entityManager;
 
@@ -25,6 +26,10 @@ public class AgendamentoEmailDao {
 	public void salvarAgendamentoEmail(AgendamentoEmail agendamentoEmail) {
 		
 		entityManager.persist(agendamentoEmail);
+	}
+	
+	public void atualizarAgendamentoEmail(AgendamentoEmail agendamentoEmail) {
+		entityManager.merge(agendamentoEmail);
 	}
 	
 	public List<AgendamentoEmail> listarAgendamentosEmailPorEmail(String email) {
