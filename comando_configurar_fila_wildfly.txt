@@ -1,0 +1,9 @@
+jboss-cli.bat --connect
+
+jms-queue add --queue-address=EmailQueue --entries=java:/jms/queue/EmailQueue
+
+comando ver processos na fila:
+/subsystem=messaging-activemq/server=default/jms-queue=EmailQueue:list-messages
+
+comando ver processos com rollback (fila separada):
+/subsystem=messaging-activemq/server=default/jms-queue=DLQ:list-messages
