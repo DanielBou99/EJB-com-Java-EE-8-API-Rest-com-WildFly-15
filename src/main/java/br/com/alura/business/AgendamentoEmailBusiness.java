@@ -5,6 +5,10 @@ import java.util.Optional;
 
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
 import javax.inject.Inject;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -20,6 +24,7 @@ import br.com.alura.interception.Logger;
 
 @Stateless /* Transformar a classe em EJB */
 @Logger
+@TransactionManagement(TransactionManagementType.CONTAINER)
 public class AgendamentoEmailBusiness {
 
 	@Inject
@@ -36,6 +41,7 @@ public class AgendamentoEmailBusiness {
 		return agendamentoEmailDao.listarAgendamentosEmail();
 	}
 	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void salvarAgendamentoEmail(@Valid AgendamentoEmail agendamentoEmail) throws BusinessException {
 		
 		if (!agendamentoEmailDao
